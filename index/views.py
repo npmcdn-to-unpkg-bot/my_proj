@@ -14,7 +14,6 @@ def index_view(request):
                 req_obj.add_header('Accept', ' application/json')
                 r = req.urlopen(req_obj)
                 data = json.loads(r.read().decode("utf-8"))
-                print(data)
                 output = json.dumps(data['artists']['items'], indent=4, separators=(',', ':'))
                 return HttpResponse(output)
             else:
@@ -22,8 +21,11 @@ def index_view(request):
         else:
             try:
                 name = request.POST['name']
-                image_url = request.POST['image_url']
-                entry = Artist(name=name, image_url=image_url)
+                if 'image_url' in request.POST:
+                    image_url = request.POST['image_url']
+                    entry = Artist(name=name, image_url=image_url)
+                else:
+                    entry = Artist(name=name)
                 entry.save()
                 return HttpResponse('OK')
             except Exception as e:
