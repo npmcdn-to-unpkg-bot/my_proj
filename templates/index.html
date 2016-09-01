@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Artists_test</title>
+    <link rel="stylesheet" href="{% static "index/css/index.css" %}" />
+    <script src="{% static "vendor/jquery-2.2.3.min.js" %}"></script>
+    <script src="{% static "vendor/react.js" %}"></script>
+    <script src="{% static "vendor/react-dom.js" %}"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <script type="text/babel" src="{% static "index/js/index.js" %}"></script>
+</head>
+<body>
+    <label for="search_box">Artist name: </label>
+    <input id="search_box" type="text" name="artist_name" value="">
+    <input id ="submit_button" type="submit" value="GO">
+    <div id="content"></div>
+</body>
+</html>
