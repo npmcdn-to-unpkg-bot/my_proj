@@ -25,3 +25,13 @@ html, body {
     width: 200px;
     height: 100px;
 }
+#content, #db_values {
+    width: 650px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+#inputs {
+    width: 100%;
+    float: left;
+}

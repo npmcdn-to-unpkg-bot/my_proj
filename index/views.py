@@ -30,5 +30,5 @@ def index_view(request):
                 return HttpResponse('OK')
             except Exception as e:
                 return HttpResponse('Error: ' + str(e))
-
-    return render(request, 'index.html', {})
+    db_values = Artist.objects.all().values()
+    return render(request, 'index.html', {'db_values': db_values})
