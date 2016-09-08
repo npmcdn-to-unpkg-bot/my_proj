@@ -12,7 +12,7 @@
     <script type="text/babel" src="{% static "index/js/index.js" %}"></script>
 </head>
 <body>
-    <div id="inputs">
+    <div id="inputs">{% csrf_token %}
         <label for="search_box">Artist name: </label>
         <input id="search_box" type="text" name="artist_name" value="">
         <input id ="submit_button" type="submit" value="GO">
