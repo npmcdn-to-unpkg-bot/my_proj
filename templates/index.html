@@ -12,9 +12,24 @@
     <script type="text/babel" src="{% static "index/js/index.js" %}"></script>
 </head>
 <body>
-    <label for="search_box">Artist name: </label>
-    <input id="search_box" type="text" name="artist_name" value="">
-    <input id ="submit_button" type="submit" value="GO">
+    <div id="inputs">{% csrf_token %}
+        <label for="search_box">Artist name: </label>
+        <input id="search_box" type="text" name="artist_name" value="">
+        <input id ="submit_button" type="submit" value="GO">
+    </div>
     <div id="content"></div>
+    <div id="db_values">
+    <h2>Current db values</h2>
+    {% for db_value in db_values %}
+        <div class="artist">
+            <div class="name">{{ db_value.name }}</div>
+            <div>
+                {% if db_value.image_url %}
+                <img class="artist_img" src={{ db_value.image_url }} />
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
 </body>
 </html>
